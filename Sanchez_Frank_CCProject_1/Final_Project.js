@@ -2,18 +2,85 @@
 // Date: May 4, 2021
 let world;
 let data;
+let info;
+let option;
+
+function preload(){
+	NA_img = loadImage('data/NYC.png');
+	SA_img = loadImage('data/Brazil.png');
+	AF_img = loadImage('data/South_Africa.png');
+	EU_img = loadImage('data/France.png');
+	AS_img = loadImage('data/India.png');
+	AN_img = loadImage('data/Antartica.png');
+	AU_img = loadImage('data/Australia.png');
+
+}
 
 function setup(){
 	createCanvas(1250, 1000);
 	world = new States();
-	data = new Dots();
-	background(0, 128, 255);
+	// data = new Dots();
+	option = 0;
+	
 }
 
 function draw(){
+	background(0, 128, 255);
 	// ellipse(100, 100, 100, 100);
 	world.display();
 	// data.display();
+
+	// fill(0);
+	if(option == 1){
+		info = new Information(NA_img, option);
+		info.display();
+	}else if(option == 2){
+		info = new Information(SA_img, option);
+		info.display();
+	}
+	// if(mouseX <= 425 && mouseY <= 500){ //&& mouseIsPressed){
+	// 	// image(AS_img, 500, 500); // sets placement
+	// 	// NA_img.resize(500, 500); // sets size
+	// 	// info = new Information(NA_img);
+	// 	// info.display();
+	// 	// rect(100, 100, 100, 100);
+	// 	if(mouseIsPressed){
+	// 		option = 1;
+	// 	}
+		
+
+	// }
+	// rect(0, 50, 425, 500); // NA Range
+
+	// rect(250, 500, 150, 325); // SA Range
+
+	// rect(550, 450, 200, 300); // Africa Range
+
+	// rect(550, 250, 250, 200); // EU Range
+
+	// rect(800, 150, 450, 475); // Asia Range
+	
+	// rect(1025, 650, 200, 175); // Australia Range
+
+	// rect(375, 875, 575, 125); // Antartica Range
+
+	// if(mouseIsPressed){
+	// 	image(EU_img);
+	// }
+}
+
+function mousePressed(){
+	// if(option == 1){
+	// 	info = new Information(NA_img);
+	// 	info.display();
+	// }
+	if(mouseX <= 425 && mouseY <= 500){
+		option = 1;
+	}else if((mouseX >= 250 && mouseX <= 400) && (mouseY <= 825 && mouseY >=500)){
+		option = 2;
+	}else{
+		option = 0;
+	}
 }
 
 // Progression:
