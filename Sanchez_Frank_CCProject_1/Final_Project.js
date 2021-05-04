@@ -1,5 +1,5 @@
 // Name: Frank Sanchez
-// Date: May 4, 2021
+// Date: May 13, 2021
 let world;
 let data;
 let info;
@@ -37,6 +37,29 @@ function draw(){
 	}else if(option == 2){
 		info = new Information(SA_img, option);
 		info.display();
+	}else if(option == 3){
+		info = new Information(AF_img, option);
+		info.display();
+	}else if(option == 4){
+		info = new Information(EU_img, option);
+		info.display();
+	}else if(option == 5){
+		info = new Information(AS_img, option);
+		info.display();
+	}else if(option == 6){
+		info = new Information(AN_img, option);
+		info.display();
+	}else if(option == 7){
+		info = new Information(AU_img, option);
+		info.display();
+	}else if(option == 8){ // have to call from information
+		fill(127);
+		rect(0, 0, width, height);
+		// Animation to persuade for vaccinations and etc.
+	}else if(option == 9){
+		fill(0);
+		rect(0, 0, width, height);
+		// Animation to persuade for vaccinations and etc.
 	}
 	// if(mouseX <= 425 && mouseY <= 500){ //&& mouseIsPressed){
 	// 	// image(AS_img, 500, 500); // sets placement
@@ -64,24 +87,28 @@ function draw(){
 
 	// rect(375, 875, 575, 125); // Antartica Range
 
-	// if(mouseIsPressed){
-	// 	image(EU_img);
-	// }
 }
 
 function mousePressed(){
-	// if(option == 1){
-	// 	info = new Information(NA_img);
-	// 	info.display();
-	// }
 	if(mouseX <= 425 && mouseY <= 500){
 		option = 1;
 	}else if((mouseX >= 250 && mouseX <= 400) && (mouseY <= 825 && mouseY >=500)){
 		option = 2;
+	}else if((mouseX >= 550 && mouseX <= 750) && (mouseY <= 750 && mouseY >= 450)){
+		option = 3;
+	}else if((mouseX >= 550 && mouseX <= 800) && (mouseY <= 450 && mouseY >= 250)){
+		option = 4;
+	}else if((mouseX >= 800 && mouseX <= width) && (mouseY <= 625 && mouseY >= 150)){
+		option = 5;
+	}else if((mouseX >= 375 && mouseX <= 950) && (mouseY <= height && mouseY >= 875)){
+		option = 6
+	}else if((mouseX >= 1025 && mouseX <= 1225) && (mouseY <= 825 && mouseY >= 650)){
+		option = 7;
 	}else{
 		option = 0;
 	}
 }
+
 
 // Progression:
 // World map just as it is
