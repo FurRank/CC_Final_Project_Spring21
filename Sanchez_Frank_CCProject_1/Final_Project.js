@@ -5,6 +5,16 @@ let data;
 let info;
 let option;
 
+// random colors for backgrounds
+let r1;
+let r2;
+let r3;
+let r4;
+let r5;
+let r6;
+let rb1;
+let rb2;
+
 function preload(){
 	NA_img = loadImage('data/NYC.png');
 	SA_img = loadImage('data/Brazil.png');
@@ -13,6 +23,9 @@ function preload(){
 	AS_img = loadImage('data/India.png');
 	AN_img = loadImage('data/Antartica.png');
 	AU_img = loadImage('data/Australia.png');
+
+	// animations
+	cool_mask = loadAnimation('data/animations/coolmask1.png', 'data/animations/coolmask43.png');
 
 }
 
@@ -55,21 +68,32 @@ function draw(){
 	}else if(option == 8){ // have to call from information
 		fill(127);
 		rect(0, 0, width, height);
+		fill(0);
+		textSize(50);
+		gradient();
+		text("COOL PEOPLE", 450, 200);
+		text("MASK UP", 500, 800);
+		animation(cool_mask, width/2, height/2);
 		// Animation to persuade for vaccinations and etc.
 	}else if(option == 9){
-		fill(0);
-		rect(0, 0, width, height);
+		gradient();
+		// Animation to persuade for vaccinations and etc.
+	}else if(option == 10){
+		gradient();
+		// Animation to persuade for vaccinations and etc.
+	}else if(option == 11){
+		gradient();
+		// Animation to persuade for vaccinations and etc.
+	}else if(option == 12){
+		gradient();
+		// Animation to persuade for vaccinations and etc.
+	}else if(option == 13){
+		gradient();
+		// Animation to persuade for vaccinations and etc.
+	}else if(option == 14){
+		gradient();
 		// Animation to persuade for vaccinations and etc.
 	}
-	// if(mouseX <= 425 && mouseY <= 500){ //&& mouseIsPressed){
-	// 	// image(AS_img, 500, 500); // sets placement
-	// 	// NA_img.resize(500, 500); // sets size
-	// 	// info = new Information(NA_img);
-	// 	// info.display();
-	// 	// rect(100, 100, 100, 100);
-	// 	if(mouseIsPressed){
-	// 		option = 1;
-	// 	}
 		
 
 	// }
@@ -89,24 +113,43 @@ function draw(){
 
 }
 
-function mousePressed(){
-	if(mouseX <= 425 && mouseY <= 500){
-		option = 1;
-	}else if((mouseX >= 250 && mouseX <= 400) && (mouseY <= 825 && mouseY >=500)){
-		option = 2;
-	}else if((mouseX >= 550 && mouseX <= 750) && (mouseY <= 750 && mouseY >= 450)){
-		option = 3;
-	}else if((mouseX >= 550 && mouseX <= 800) && (mouseY <= 450 && mouseY >= 250)){
-		option = 4;
-	}else if((mouseX >= 800 && mouseX <= width) && (mouseY <= 625 && mouseY >= 150)){
-		option = 5;
-	}else if((mouseX >= 375 && mouseX <= 950) && (mouseY <= height && mouseY >= 875)){
-		option = 6
-	}else if((mouseX >= 1025 && mouseX <= 1225) && (mouseY <= 825 && mouseY >= 650)){
-		option = 7;
-	}else{
-		option = 0;
+function gradient(){
+	if(option == 8){r1 = 231; r2 = 32; r3 = 64; r4 = 132; r5 = 92; r6 = 12;}
+	else if(option == 9){r1 = 203; r2 = 131; r3 = 48; r4 = 174; r5 = 217; r6 = 38;}
+	else if(option == 10){r1 = 42; r2 = 58; r3 = 225; r4 = 215; r5 = 27; r6 = 190;}
+	else if(option == 11){r1 = 70; r2 = 159; r3 = 110; r4 = 82; r5 = 92; r6 = 52;}
+	else if(option == 12){r1 = 35; r2 = 161; r3 = 121; r4 = 94; r5 = 124; r6 = 196;}
+	else if(option == 13){r1 = 210; r2 = 66; r3 = 236; r4 = 194; r5 = 193; r6 = 209;}
+	else if(option == 14){r1 = 6; r2 = 74; r3 = 64; r4 = 72; r5 = 229; r6 = 31;}
+
+	rb1 = color(r1, r2, r3);
+	rb2 = color(r4, r5, r6);
+	for(let i = 0; i < height; i++){
+		let interA = map(i, 0, height, 0, 1);
+		let col = lerpColor(rb1, rb2, interA);
+		stroke(col);
+		line(0, i, width, i);
 	}
+}
+
+function mousePressed(){
+	if(((mouseX >= 0 & mouseX <= 425) && (mouseY <= 500 && mouseY >= 50)) && option == 0){
+		option = 1;
+	}else if((mouseX >= 250 && mouseX <= 400) && (mouseY <= 825 && mouseY >=500) && option == 0){
+		option = 2;
+	}else if((mouseX >= 550 && mouseX <= 750) && (mouseY <= 750 && mouseY >= 450) && option == 0){
+		option = 3;
+	}else if((mouseX >= 550 && mouseX <= 800) && (mouseY <= 450 && mouseY >= 250) && option == 0){
+		option = 4;
+	}else if((mouseX >= 800 && mouseX <= width) && (mouseY <= 625 && mouseY >= 150) && option == 0){
+		option = 5;
+	}else if((mouseX >= 375 && mouseX <= 950) && (mouseY <= height && mouseY >= 875) && option == 0){
+		option = 6
+	}else if((mouseX >= 1025 && mouseX <= 1225) && (mouseY <= 825 && mouseY >= 650) && option == 0){
+		option = 7;
+	}//else{
+		// option = 0;
+	// }
 }
 
 
