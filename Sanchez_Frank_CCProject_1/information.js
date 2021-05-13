@@ -8,9 +8,6 @@ class Information{
 		this.s1;
 		this.s2;
 		this.s3;
-
-		this.counter = 0;
-		// an array of fonts (randomize for each description)
 	}
 
 	display(){
@@ -24,21 +21,36 @@ class Information{
 				line(0, i, width, i);
 			}
 			fill(0); // background square
+			stroke(0);
 			rect(200, 80, 850, 540);
 
 			image(this.img, 225, 100); 
 			this.img.resize(800, 500);
 			textSize(32);
 			fill(255); // text color
+			text("NEW YORK CITY", 500, 50);
 			this.s1 = "Total Cases (NA): ~33,500,000";// Total Cases in Continent
 			this.s2 = "Total Deaths (NA): ~600,000";// total deaths continent
-			this.s3 = "Most Affected Area: USA (NY) TC: 32,300,000 TD: 575,000";// what area has the most (cases/deaths?)
+			this.s3 = "Most Affected Area: USA (NY) \nTotal Cases: 32,300,000 \n\nTotal Deaths: 575,000";// what area has the most (cases/deaths?)
 			text(this.s1, 100, 700, 200, 200);
-			text(this.s2, width/2-100, 700, 200, 200);
-			text(this.s3, 900, 700, 300, 350);
+			text(this.s2, 100, 850, 200, 200);
+			text(this.s3, width/2-200, 700, 300, 350);
 
-			// this.counter = 1;
-			// console.log(this.counter);
+			textSize(16);
+			text("NA Cases vs. USA Cases", 950, 655);
+
+			fill(255, 0, 0);
+			ellipse(1050, 825, 300, 300);
+
+			fill(0, 0, 255);
+			arc(1050, 825, 300, 300, 4*PI/3, 3*PI/2);
+
+			fill(255);
+			text("96%", 1080, 850);
+			text("4%", 1010, 720);
+
+			text("NA = Blue", 800, 800);
+			text("USA = Red", 800, 830);
 
 		}else if(this.img == SA_img){
 			this.b1 = color(182, 96, 221);
@@ -49,20 +61,39 @@ class Information{
 				stroke(col);
 				line(0, i, width, i);
 			}
+			fill(0); // background square
+			stroke(0);	
+			rect(200, 80, 850, 540);
+
 			image(this.img, 225, 100); 
 			this.img.resize(800, 500);
 			
 			textSize(32);
 			fill(255); // text color
+			text("BRAZIL", 570, 50);
 			this.s1 = "Total Cases (SA): ~29,300,000";
 			this.s2 = "Total Deaths (SA): ~930,000";
-			this.s3 = "Most Affected Area: Brazil TC: 14,780,000 TD: 408,000";
+			this.s3 = "Most Affected Area: (Brazil) \nTotal Cases: 14,780,000 \n\nTotal Deaths: 408,000";
 			text(this.s1, 100, 700, 200, 200);
-			text(this.s2, width/2-100, 700, 200, 200);
-			text(this.s3, 900, 700, 300, 350);
+			text(this.s2, 100, 850, 200, 200);
+			text(this.s3, width/2-200, 700, 300, 350);
 
-			// this.counter = 2;
-			// Differnt displays (i.e. text and bg)
+
+			textSize(16);
+			text("SA Cases vs. BRAZIL Cases", 950, 655);
+
+			fill(255, 0, 0);
+			ellipse(1050, 825, 300, 300);
+
+			fill(0, 0, 255);
+			arc(1050, 825, 300, 300, PI/2, 3*PI/2);
+
+			fill(255);
+			text("50%", 1080, 830);
+			text("50%", 990, 830);
+
+			text("SA = Blue", 790, 800);
+			text("BRAZIL = Red", 790, 830);
 			
 		}else if(this.img == EU_img){
 			this.b1 = color(135, 53, 19);
@@ -73,6 +104,15 @@ class Information{
 				stroke(col);
 				line(0, i, width, i);
 			}
+
+			fill(0); // background square
+			stroke(0);
+			rect(200, 80, 850, 540);
+
+			textSize(32);
+			fill(255); // text color
+			text("FRANCE", 570, 50);
+
 			image(this.img, 225, 100); 
 			this.img.resize(800, 500);
 			
@@ -80,11 +120,26 @@ class Information{
 			fill(255); // text color
 			this.s1 = "Total Cases (EU): ~50,000,000";
 			this.s2 = "Total Deaths (EU): ~1,076,000";
-			this.s3 = "Most Affected Area: UK TC: 4,421,000 TD: 127,000";
+			this.s3 = "Most Affected Area: (FR) \nTotal Cases: 5,777,000 \n\nTotal Deaths: 106,000";
 			text(this.s1, 100, 700, 200, 200);
-			text(this.s2, width/2-100, 700, 200, 200);
-			text(this.s3, 900, 700, 300, 350);
-			// Differnt displays (i.e. text and bg)
+			text(this.s2, 100, 850, 200, 200);
+			text(this.s3, width/2-200, 700, 300, 350);
+
+			textSize(16);
+			text("EU Cases vs. FRANCE Cases", 950, 655);
+
+			fill(255, 0, 0);
+			ellipse(1050, 825, 300, 300);
+
+			fill(0, 0, 255);
+			arc(1050, 825, 300, 300, 4*PI/3, 3*PI/2);
+
+			fill(255);
+			text("89%", 1080, 850);
+			text("11%", 1005, 720);
+
+			text("FRANCE = Blue", 780, 800);
+			text("EU = Red", 780, 830);
 		}else if(this.img == AF_img){
 			this.b1 = color(42, 31, 53);
 			this.b2 = color(121, 172, 198);
@@ -94,6 +149,14 @@ class Information{
 				stroke(col);
 				line(0, i, width, i);
 			}
+			fill(0); // background square
+			stroke(0);
+			rect(200, 80, 850, 540);
+
+			textSize(32);
+			fill(255); // text color
+			text("SOUTH AFRICA", 540, 50);
+
 			image(this.img, 225, 100); 
 			this.img.resize(800, 500);
 			
@@ -101,11 +164,26 @@ class Information{
 			fill(255); // text color
 			this.s1 = "Total Cases (AF): ~4,620,000";
 			this.s2 = "Total Deaths (AF): ~122,800";
-			this.s3 = "Most Affected Area: South Africa TC: 1,580,000 TD: 54,000";
+			this.s3 = "Most Affected Area: (South Africa) \nTotal Cases: 1,580,000 \n\nTotal Deaths: 54,000";
 			text(this.s1, 100, 700, 200, 200);
-			text(this.s2, width/2-100, 700, 200, 200);
-			text(this.s3, 900, 700, 300, 350);
-			// Differnt displays (i.e. text and bg)
+			text(this.s2, 100, 850, 200, 200);
+			text(this.s3, width/2-200, 700, 300, 350);
+
+			textSize(16);
+			text("AF Cases vs. SOUTH AFRICA Cases", 930, 655);
+
+			fill(255, 0, 0);
+			ellipse(1050, 825, 300, 300);
+
+			fill(0, 0, 255);
+			arc(1050, 825, 300, 300, 5*PI/6, 3*PI/2);
+
+			fill(255);
+			text("66%", 1080, 850);
+			text("34%", 970, 790);
+
+			text("SOUTH AFRICA = Blue", 730, 800);
+			text("AF = Red", 730, 830);
 		}else if(this.img == AS_img){
 			this.b1 = color(0, 0, 0);
 			this.b2 = color(230, 230, 230);
@@ -115,18 +193,43 @@ class Information{
 				stroke(col);
 				line(0, i, width, i);
 			}
+			fill(0); // background square
+			stroke(0);
+			rect(200, 80, 850, 540);
+
+			textSize(32);
+			fill(255); // text color
+			text("INDIA", 575, 50);
+
 			image(this.img, 225, 100); 
 			this.img.resize(800, 500);
 
 			textSize(32);
-			fill(255); // text color
-			this.s1 = "Total Cases (AS): ~27,300,000";
-			this.s2 = "Total Deaths (AS): ~350,000";
-			this.s3 = "Most Affected Area: India TC: 20,000,000 TD: 222,000";
+			fill(50); // text color
+			this.s1 = "Total Cases (AS): ~30,000,000";
+			this.s2 = "Total Deaths (AS): ~378,000";
+			this.s3 = "Most Affected Area: (India) \nTotal Cases: 22,600,000 \n\nTotal Deaths: 246,000";
 			text(this.s1, 100, 700, 200, 200);
-			text(this.s2, width/2-100, 700, 200, 200);
-			text(this.s3, 900, 700, 300, 350);
-			// Differnt displays (i.e. text and bg)
+			text(this.s2, 100, 850, 200, 200);
+			text(this.s3, width/2-200, 700, 300, 350);
+
+			textSize(16);
+			text("AS Cases vs. INDIA Cases", 950, 655);
+
+			fill(255, 0, 0);
+			ellipse(1050, 825, 300, 300);
+
+			fill(0, 0, 255);
+			arc(1050, 825, 300, 300, 2*PI, 3*PI/2);
+
+			fill(255);
+			text("25%", 1080, 780);
+			text("75%", 970, 870);
+
+			fill(50);
+			text("INDIA = Blue", 770, 800);
+			text("AS = Red", 770, 830);
+
 		}else if(this.img == AN_img){
 			this.b1 = color(75, 183, 163);
 			this.b2 = color(90, 53, 92);
@@ -135,6 +238,15 @@ class Information{
 				let col = lerpColor(this.b1, this.b2, interA);
 				stroke(col);
 				line(0, i, width, i);
+			}
+			fill(0); // background square
+			stroke(0);
+			rect(200, 80, 850, 540);
+
+			textSize(32);
+			fill(255); // text color
+			text("ANTARTICA", 540, 50);
+
 			textSize(32);
 			fill(255); // text color
 			this.s1 = "Total Cases (AN): 36";
@@ -143,7 +255,6 @@ class Information{
 			text(this.s1, 100, 700, 200, 200);
 			text(this.s2, width/2-100, 700, 200, 200);
 			text(this.s3, 900, 700, 300, 350);
-			}
 			image(this.img, 225, 100); 
 			this.img.resize(800, 500);
 			// Differnt displays (i.e. text and bg)
@@ -155,25 +266,49 @@ class Information{
 				let col = lerpColor(this.b1, this.b2, interA);
 				stroke(col);
 				line(0, i, width, i);
+			}
+
+			fill(0); // background square
+			stroke(0);
+			rect(200, 80, 850, 540);
+
 			textSize(32);
 			fill(255); // text color
-			this.s1 = "Total Cases (OC): ~70,700";
+			text("AUSTRALIA", 540, 50);
+
+			textSize(32);
+			fill(255); // text color
+			this.s1 = "Total Cases (OC): ~71,300";
 			this.s2 = "Total Deaths (OC): ~1,300";
-			this.s3 = "Most Affected Area: Australia TC: 29,800 TD: 910";
+			this.s3 = "Most Affected Area: (Australia) \nTotal Cases: \n29,900 \n\nTotal Deaths: \n910";
 			text(this.s1, 100, 700, 200, 200);
-			text(this.s2, width/2-100, 700, 200, 200);
-			text(this.s3, 900, 700, 300, 350);
-			}
+			text(this.s2, 100, 850, 200, 200);
+			text(this.s3, width/2-200, 700, 300, 350);
+
 			image(this.img, 225, 100); 
 			this.img.resize(800, 500);
-			// Differnt displays (i.e. text and bg)
+			
+			textSize(16);
+			text("OC Cases vs. AUSTRALIA Cases", 920, 655);
+
+			fill(255, 0, 0);
+			ellipse(1050, 825, 300, 300);
+
+			fill(0, 0, 255);
+			arc(1050, 825, 300, 300, 2*PI/3, 3*PI/2);
+
+			fill(255);
+			text("58%", 1080, 830);
+			text("42%", 970, 830);
+
+			text("AUSTRALIA = Blue", 740, 800);
+			text("OC = Red", 740, 830);
 		}
 	}
 }
 
 function keyPressed(){
 	if(key == 'N'|| key == 'n'){ // go next to animation slide
-		// console.log(this.counter);
 		if(option == 1){
 			option = 8;
 		}else if(option == 2){
@@ -206,7 +341,7 @@ function keyPressed(){
 		}else if(option == 13){
 			option = 6;
 		}else if(option == 14){
-			option = 6;
+			option = 7;
 		}	
 	}
 	

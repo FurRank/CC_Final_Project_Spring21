@@ -1,5 +1,5 @@
 class States{
-	constructor(){
+	constructor(highlight){
 		// NA
 		this.NA = new createVector(100, 300);
 		// SA
@@ -14,12 +14,15 @@ class States{
 		this.AN = new createVector(550, height-100);
 		// Australia 
 		this.AU = new createVector(1050, 650);
+
+		this.bright = highlight;
 	}
 
 	display(){
 		noStroke();
 		// NA
-		fill(255, 51, 51); // Red
+		if(this.bright == true && this.bright == highlight1){fill(250,128,114);}			
+		else{fill(255, 51, 51);} // Red
 		rect(this.NA.x+175, this.NA.y-25, 75, 25); // Parts of Canada (East)
 		rect(this.NA.x+175, this.NA.y-50, 50, 25); // Parts of Canada
 		rect(this.NA.x+175, this.NA.y-75, 25, 25); // Parts of Canada
@@ -42,7 +45,8 @@ class States{
 		rect(this.NA.x+75, this.NA.y+150, 25, 50); // Parts of Mexico
 		rect(this.NA.x+75, this.NA.y+200, 75, 25); // Parts of Mexico
 		// SA
-		fill(255, 153, 51); // Orange
+		if(this.bright == true && this.bright == highlight2){fill(254, 216, 117);}
+		else{fill(255, 153, 51);} // Orange}
 		rect(this.SA.x, this.SA.y, 75, 100);
 		rect(this.SA.x+25, this.SA.y+25, 100, 200);
 		rect(this.SA.x+50, this.SA.y+50, 100, 100);
@@ -50,7 +54,9 @@ class States{
 		rect(this.SA.x+25, this.SA.y+25, 50, 300);
 
 		// Africa
-		fill(0, 102, 204); // Blue
+		if(this.bright == true && this.bright == highlight3){fill(120, 216, 250);}
+		else{fill(0, 102, 204);} // Blue}
+		
 		rect(this.AF.x, this.AF.y, 175, 100);
 		rect(this.AF.x+50, this.AF.y, 125, 150);
 		rect(this.AF.x+50, this.AF.y+75, 150, 75);
@@ -60,7 +66,9 @@ class States{
 		rect(this.AF.x+50, this.AF.y, 50, 300);
 		rect(this.AF.x+150, this.AF.y+200, 25, 50);
 		// Europe
-		fill(255, 255, 51);
+		if(this.bright == true && this.bright == highlight4){fill(255, 255, 183);}
+		else{fill(255, 212, 0);} // Yellow }
+		
 		rect(this.EU.x-50, this.EU.y-100, 25, 25); // Iceland
 		rect(this.EU.x, this.EU.y+75, 25, 25);
 		rect(this.EU.x+25, this.EU.y+25, 100, 50);
@@ -74,7 +82,8 @@ class States{
 		rect(this.EU.x-25, this.EU.y, 50, 25);
 		rect(this.EU.x, this.EU.y-25, 25, 25);
 		// Asia
-		fill(51, 255, 51);
+		if(this.bright == true && this.bright == highlight5){fill(150, 255, 150);}
+		else{fill(0, 255, 0);} // 51, 255, 51
 		rect(this.AS.x, this.AS.y, 100, 100);
 		rect(this.AS.x-75, this.AS.y+150, 25, 50);
 		rect(this.AS.x-50, this.AS.y+150, 50, 100);
@@ -99,13 +108,15 @@ class States{
 		rect(this.AS.x+225, this.AS.y+325, 75, 25);
 		rect(this.AS.x+250, this.AS.y+275, 25, 25);
 		// Antartica
-		fill(255);
+		if(this.bright == true && this.bright == highlight6){fill(210, 210, 210);}
+		else{fill(255);}
 		rect(this.AN.x, this.AN.y+50, 400, 50);
 		rect(this.AN.x-150, this.AN.y+50, 50, 50);
 		rect(this.AN.x-175, this.AN.y+75, 50, 25);
 		rect(this.AN.x-125, this.AN.y-25, 25, 75);
 		// Australia
-		fill(153, 51, 255);
+		if(this.bright == true && this.bright == highlight7){fill(205, 183, 246);}
+		else{fill(153, 51, 255);}
 		rect(this.AU.x, this.AU.y, 75, 75);
 		rect(this.AU.x-25, this.AU.y+25, 25, 75);
 		rect(this.AU.x+50, this.AU.y+25, 50, 75);
