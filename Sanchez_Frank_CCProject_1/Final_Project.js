@@ -5,6 +5,7 @@ let data;
 let info;
 let option;
 
+// images
 let NA_img;
 let SA_img;
 let AF_img;
@@ -13,6 +14,7 @@ let AS_img;
 let AN_img;
 let AU_img;
 
+// fonts
 let font1;
 let font2;
 let font3;
@@ -33,6 +35,7 @@ let rb2;
 
 // sound
 let woosh;
+let reverse;
 
 let highlight0 = false;
 let highlight1 = false;
@@ -72,7 +75,11 @@ function preload(){
 	font6 = loadFont('data/fonts/Stricken_Brush.ttf');
 	font7 = loadFont('data/fonts/NORTHCLIFF.ttf');
 
+	// sounds
 	woosh = loadSound('data/Transition.wav');
+	woosh.setVolume(0.5);
+	reverse = loadSound('data/Woosh_reverse.wav');
+	reverse.setVolume(0.3);
 }
 
 function setup(){
@@ -89,13 +96,76 @@ function draw(){
 	data.display();
 
 	// highlight states
-	if(((mouseX >= 0 & mouseX <= 425) && (mouseY <= 500 && mouseY >= 50))){highlight1 = true; world = new States(highlight1); highlight2 = false;}
-	else if((mouseX >= 250 && mouseX <= 400) && (mouseY <= 825 && mouseY >=500)){highlight2 = true; world = new States(highlight2); highlight1 = false;}
-	else if((mouseX >= 550 && mouseX <= 750) && (mouseY <= 750 && mouseY >= 450)){highlight3 = true; world = new States(highlight3); highlight4 = false; highlight5 = false;}
-	else if((mouseX >= 550 && mouseX <= 800) && (mouseY <= 450 && mouseY >= 250)){highlight4 = true; world = new States(highlight4); highlight3 = false; highlight5 = false;}
-	else if((mouseX >= 800 && mouseX <= width) && (mouseY <= 625 && mouseY >= 150)){highlight5 = true; world = new States(highlight5); highlight3 = false; highlight4 = false;} 
-	else if((mouseX >= 375 && mouseX <= 950) && (mouseY <= height && mouseY >= 875)){highlight6 = true; world = new States(highlight6);}
-	else if((mouseX >= 1025 && mouseX <= 1225) && (mouseY <= 825 && mouseY >= 650)){highlight7 = true; world = new States(highlight7);}
+	if(((mouseX >= 0 & mouseX <= 425) && (mouseY <= 500 && mouseY >= 50)))
+		{highlight1 = true; world = new States(highlight1); highlight2 = false;
+			fill(0, 0, 0, 150); 
+			stroke(0);
+			rect(350, 30, 850, 550);
+			image(NA_img, 375, 50); 
+			NA_img.resize(800, 500);
+
+			triangle(350, 30, 325, 325, 350, 580);
+		}
+	else if((mouseX >= 250 && mouseX <= 400) && (mouseY <= 825 && mouseY >=500))
+		{highlight2 = true; world = new States(highlight2); highlight1 = false;
+			fill(0, 0, 0, 150); 
+			stroke(0);
+			rect(350, 30, 850, 550);
+			image(SA_img, 375, 50); 
+			SA_img.resize(800, 500);
+
+			triangle(350, 580, 375, 600, 1200, 580);
+		}
+	else if((mouseX >= 550 && mouseX <= 750) && (mouseY <= 750 && mouseY >= 450))
+		{highlight3 = true; world = new States(highlight3); highlight4 = false; highlight5 = false;
+			fill(0, 0, 0, 150); 
+			stroke(0);
+			rect(0, 0, 850, 550);
+			image(AF_img, 25, 20); 
+			AF_img.resize(800, 500);
+
+			triangle(0, 550, 650, 600, 850, 550);
+		}
+	else if((mouseX >= 550 && mouseX <= 800) && (mouseY <= 450 && mouseY >= 250))
+		{highlight4 = true; world = new States(highlight4); highlight3 = false; highlight5 = false;
+			fill(0, 0, 0, 150); 
+			stroke(0);
+			rect(0, 450, 850, 550);
+			image(EU_img, 25, 470); 
+			EU_img.resize(800, 500);
+
+			triangle(0, 450, 650, 425, 850, 450);
+		}
+	else if((mouseX >= 800 && mouseX <= width) && (mouseY <= 625 && mouseY >= 150))
+		{highlight5 = true; world = new States(highlight5); highlight3 = false; highlight4 = false;
+			fill(0, 0, 0, 150); 
+			stroke(0);
+			rect(0, 125, 850, 550);
+			image(AS_img, 25, 145); 
+			AS_img.resize(800, 500);
+
+			triangle(850, 125, 900, 500, 850, 675);
+		} 
+	else if((mouseX >= 375 && mouseX <= 950) && (mouseY <= height && mouseY >= 875))
+		{highlight6 = true; world = new States(highlight6);
+			fill(0, 0, 0, 150); 
+			stroke(0);
+			rect(350, 30, 850, 550);
+			image(AN_img, 375, 50); 
+			AN_img.resize(800, 500);
+
+			triangle(350, 580, 750, height-50, 1200, 580);
+		}
+	else if((mouseX >= 1025 && mouseX <= 1225) && (mouseY <= 825 && mouseY >= 650))
+		{highlight7 = true; world = new States(highlight7);
+			fill(0, 0, 0, 150); 
+			stroke(0);
+			rect(150, 400, 850, 550);
+			image(AU_img, 175, 420); 
+			AU_img.resize(800, 500);
+
+			triangle(1000, 400, 1075, 700, 1000, 950);
+		}
 	else{
 		world = new States(highlight0);
 		highlight1 = false;
@@ -107,9 +177,6 @@ function draw(){
 		highlight7 = false;
 	}
 
-
-
-	// fill(0);
 	if(option == 1){
 		info = new Information(NA_img, option);
 		info.display();
@@ -180,7 +247,6 @@ function draw(){
 		text("IF YOU'RE FEELING ILL", 375, 175);
 		text("REST IT OUT", 475, 850);
 		animation(rest, width/2, height/2);
-		// Animation to persuade for vaccinations and etc.
 	}else if(option == 14){
 		gradient();
 		fill(255);
@@ -190,10 +256,9 @@ function draw(){
 		text("KEEP IT CLEAN FOR OTHERS", 250, 800);
 		scale(2);
 		animation(clean, width/2-300, height/2-250);
-		// Animation to persuade for vaccinations and etc.
 	}
 		
-	if(option == 15){
+	if(option == 15){ // start up screen
 
 		rb1 = color(87, 53, 21);
 		rb2 = color(135, 42, 213);
@@ -229,25 +294,10 @@ function draw(){
 
 		scale(10);
 		image(covid,36.5,25);
-		// covid.resize(1000, 1000);
 		if(keyIsPressed){
 			option == 0;
 		}
 	}
-	// rect(0, 50, 425, 500); // NA Range
-
-	// rect(250, 500, 150, 325); // SA Range
-
-	// rect(550, 450, 200, 300); // Africa Range
-
-	// rect(550, 250, 250, 200); // EU Range
-
-	// rect(800, 150, 450, 475); // Asia Range
-	
-	// rect(1025, 650, 200, 175); // Australia Range
-
-	// rect(375, 875, 575, 125); // Antartica Range
-	
 }
 
 function gradient(){
@@ -270,26 +320,11 @@ function gradient(){
 }
 
 function mousePressed(){
-	if(((mouseX >= 0 & mouseX <= 425) && (mouseY <= 500 && mouseY >= 50)) && option == 0){option = 1;}
-	else if((mouseX >= 250 && mouseX <= 400) && (mouseY <= 825 && mouseY >=500) && option == 0){option = 2;}
-	else if((mouseX >= 550 && mouseX <= 750) && (mouseY <= 750 && mouseY >= 450) && option == 0){option = 3;}
-	else if((mouseX >= 550 && mouseX <= 800) && (mouseY <= 450 && mouseY >= 250) && option == 0){option = 4;}
-	else if((mouseX >= 800 && mouseX <= width) && (mouseY <= 625 && mouseY >= 150) && option == 0){option = 5;} 
-	else if((mouseX >= 375 && mouseX <= 950) && (mouseY <= height && mouseY >= 875) && option == 0){option = 6}
-	else if((mouseX >= 1025 && mouseX <= 1225) && (mouseY <= 825 && mouseY >= 650) && option == 0){option = 7;}
+	if(((mouseX >= 0 & mouseX <= 425) && (mouseY <= 500 && mouseY >= 50)) && option == 0){woosh.play(); option = 1;}
+	else if((mouseX >= 250 && mouseX <= 400) && (mouseY <= 825 && mouseY >=500) && option == 0){woosh.play(); option = 2;}
+	else if((mouseX >= 550 && mouseX <= 750) && (mouseY <= 750 && mouseY >= 450) && option == 0){woosh.play(); option = 3;}
+	else if((mouseX >= 550 && mouseX <= 800) && (mouseY <= 450 && mouseY >= 250) && option == 0){woosh.play(); option = 4;}
+	else if((mouseX >= 800 && mouseX <= width) && (mouseY <= 625 && mouseY >= 150) && option == 0){woosh.play(); option = 5;} 
+	else if((mouseX >= 375 && mouseX <= 950) && (mouseY <= height && mouseY >= 875) && option == 0){woosh.play(); option = 6}
+	else if((mouseX >= 1025 && mouseX <= 1225) && (mouseY <= 825 && mouseY >= 650) && option == 0){woosh.play(); option = 7;}
 }
-
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }
-
-
-// Progression:
-// World map just as it is
-// Give it a couple of seconds, then the data (symbols) will scale? (or have) sizes (S, M, L, XL) depending on how covid effected the area
-// On the world map, there will be a refresh button (maybe) so the visual can repeat
-// Press any continent to view information
-// -> Info on highest effected area in that continent, how it's doing now, current most effected area
-// There will be a next button to get out of the infographic
-// and users will be met with a persuasion animation (i.e. for them to get their shots and mask-up regardless, etc.)
-// (Maybe) 7 animations for each infographic

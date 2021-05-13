@@ -257,7 +257,6 @@ class Information{
 			text(this.s3, 900, 700, 300, 350);
 			image(this.img, 225, 100); 
 			this.img.resize(800, 500);
-			// Differnt displays (i.e. text and bg)
 		}else if(this.img == AU_img){
 			this.b1 = color(230, 230, 0);
 			this.b2 = color(0, 100, 0);
@@ -310,18 +309,25 @@ class Information{
 function keyPressed(){
 	if(key == 'N'|| key == 'n'){ // go next to animation slide
 		if(option == 1){
+			woosh.play(); 
 			option = 8;
 		}else if(option == 2){
+			woosh.play(); 
 			option = 9;
 		}else if(option == 3){
+			woosh.play(); 
 			option = 10;
 		}else if(option == 4){
+			woosh.play(); 
 			option = 11;
 		}else if(option == 5){
+			woosh.play(); 
 			option = 12;
 		}else if(option == 6){
+			woosh.play(); 
 			option = 13;
 		}else if(option == 7){
+			woosh.play(); 
 			option = 14;
 		}
 	}
@@ -329,18 +335,25 @@ function keyPressed(){
 		option = 0;
 	}else if(key == 'H' || key == 'h'){ // backtrack if on info slides
 		if(option == 8){
+			reverse.play();
 			option = 1;
 		}else if(option == 9){
+			reverse.play();
 			option = 2;
 		}else if(option == 10){
+			reverse.play();
 			option = 3;
 		}else if(option == 11){
+			reverse.play();
 			option = 4;
 		}else if(option == 12){
+			reverse.play();
 			option = 5;
 		}else if(option == 13){
+			reverse.play();
 			option = 6;
 		}else if(option == 14){
+			reverse.play();
 			option = 7;
 		}	
 	}

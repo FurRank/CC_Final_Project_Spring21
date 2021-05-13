@@ -5,7 +5,7 @@ class Dots{
 	}
 
 	display(){
-			// 
+			// Little images that portray most affected area
 			for(let i = 1; i < 8; i++){
 				if(i == 1){
 					image(this.covid, 275, 300); 
@@ -32,5 +32,3 @@ class Dots{
 			}
 	}
 }
-
-// Maybe make it an image (i.e. caution sight), or even make the symbol
